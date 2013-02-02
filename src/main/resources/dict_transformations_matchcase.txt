@@ -1,0 +1,13 @@
+# $Id$
+# $Source$
+
+# Acronyms
+ADD	Attention Deficit Disorder
+AIDS	Acquired Immunity Deficiency Syndrome
+RA	Rheumatoid Arthritis
+BAD	Bipolar Affective Disorder
+
+# Periodic table elements
+Be	Beryllium
+As	Arsenic
+Ra	Radium

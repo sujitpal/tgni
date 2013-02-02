@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<!-- $Source$ -->
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>
+    com.mycompany.tgni.analysis.uima.annotators.nlp.NounPhraseAnnotator
+  </annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>NounPhraseAE</name>
+    <description>Annotates Noun Phrases in sentences</description>
+    <version>1.0</version>
+    <vendor>Healthline Networks, Inc.</vendor>
+    <configurationParameters/>
+    <configurationParameterSettings/>
+    <typeSystemDescription>
+      <imports>
+        <import location="@tgni.home@/conf/descriptors/Text.xml"/>
+        <import location="@tgni.home@/conf/descriptors/NounPhrase.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs>
+          <type>com.mycompany.tgni.analysis.uima.annotators.text.TextAnnotation</type>
+          <feature>com.mycompany.tgni.analysis.uima.annotators.text.TextAnnotation:tagname</feature>
+        </inputs>
+        <outputs>
+          <type>com.mycompany.tgni.analysis.uima.annotators.nlp.NounPhraseAnnotation</type>
+          <feature>com.mycompany.tgni.analysis.uima.annotations.nlp.NounPhraseAnnotation:coordExpansions</feature>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <externalResourceDependencies>
+    <externalResourceDependency>
+      <key>TokenizerModel</key>
+      <description>OpenNLP Tokenizer Model</description>
+      <optional>false</optional>
+    </externalResourceDependency>
+    <externalResourceDependency>
+      <key>POSModel</key>
+      <description>OpenNLP POS Tagging Model</description>
+      <optional>false</optional>
+    </externalResourceDependency>
+    <externalResourceDependency>
+      <key>ChunkerModel</key>
+      <description>OpenNLP Chunker Model</description>
+      <optional>false</optional>
+    </externalResourceDependency>
+  </externalResourceDependencies>
+  <resourceManagerConfiguration>
+    <externalResources>
+      <externalResource>
+        <name>TokenizerModelSerFile</name>
+        <description/>
+        <fileResourceSpecifier>
+          <fileUrl>file:@tgni.home@/conf/models/en_token.bin</fileUrl>
+        </fileResourceSpecifier>
+      </externalResource>
+      <externalResource>
+        <name>POSModelSerFile</name>
+        <description/>
+        <fileResourceSpecifier>
+          <fileUrl>file:@tgni.home@/conf/models/en_pos_maxent.bin</fileUrl>
+        </fileResourceSpecifier>
+      </externalResource>
+      <externalResource>
+        <name>ChunkerModelSerFile</name>
+        <description/>
+        <fileResourceSpecifier>
+          <fileUrl>file:@tgni.home@/conf/models/en_chunker.bin</fileUrl>
+        </fileResourceSpecifier>
+      </externalResource>
+    </externalResources>
+    <externalResourceBindings>
+      <externalResourceBinding>
+        <key>TokenizerModel</key>
+        <resourceName>TokenizerModelSerFile</resourceName>
+      </externalResourceBinding>
+      <externalResourceBinding>
+        <key>POSModel</key>
+        <resourceName>POSModelSerFile</resourceName>
+      </externalResourceBinding>
+      <externalResourceBinding>
+        <key>ChunkerModel</key>
+        <resourceName>ChunkerModelSerFile</resourceName>
+      </externalResourceBinding>
+    </externalResourceBindings>
+  </resourceManagerConfiguration>
+</analysisEngineDescription>

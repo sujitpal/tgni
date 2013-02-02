@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<!-- $Source$ -->
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>com.mycompany.tgni.analysis.uima.annotators.keyword.DictionaryAnnotator</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>DictionaryPreserveMatchCaseAE</name>
+    <description>
+      Dictionary based annotator. Detects phrases to preserve.
+      Case matters.
+    </description>
+    <version>1.0</version>
+    <vendor>Healthline Networks, Inc.</vendor>
+    <configurationParameters>
+      <configurationParameter>
+        <name>preserveOrTransform</name>
+        <description>Whether to preserve or transform matched dictionary entry</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>ignoreCase</name>
+        <description>Whether to ignore case when matching</description>
+        <type>Boolean</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>maxShingleSize</name>
+        <description>Max number of words in phrase shingles</description>
+        <type>Integer</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>preserveOrTransform</name>
+        <value>
+          <string>preserve</string>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>ignoreCase</name>
+        <value>
+          <boolean>false</boolean>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>maxShingleSize</name>
+        <value>
+          <integer>5</integer>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+    <typeSystemDescription>
+      <imports>
+        <import location="@tgni.home@/conf/descriptors/Keyword.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type>com.mycompany.tgni.analysis.uima.annotators.keyword.KeywordAnnotation</type>
+          <feature>com.mycompany.tgni.analysis.uima.annotators.keyword.KeywordAnnotation:transformedValue</feature>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration>
+    <externalResources>
+      <externalResource>
+        <name>dictCaseSensitiveSet</name>
+        <description>Set of dictionary phrases to preserve</description>
+        <fileResourceSpecifier>
+          <fileUrl>file:@tgni.home@/conf/dict_preservations_matchcase.txt</fileUrl>
+        </fileResourceSpecifier>
+        <implementationName>com.mycompany.tgni.analysis.uima.conf.SharedSetResource</implementationName>
+      </externalResource>
+    </externalResources>
+    <externalResourceBindings>
+      <externalResourceBinding>
+        <key>dictAnnotatorProperties</key>
+        <resourceName>dictCaseSensitiveSet</resourceName>
+      </externalResourceBinding>
+    </externalResourceBindings>
+  </resourceManagerConfiguration>
+</analysisEngineDescription>

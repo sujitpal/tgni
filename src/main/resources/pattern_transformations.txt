@@ -1,0 +1,15 @@
+# $Id$
+# $Source$
+# Format of this file:
+# pattern	transform
+# Inline comments not permitted. Transform is supplied as s/src/repl/[g]
+#
+# abbreviation with embedded periods eg. U.S.A. Transform to USA
+([A-Z]\.)+	s/\.//
+# plurals of abbreviation should transform to singular form, eg. IBMs => IBM
+# (free-standing words, ie, terminated by space or punct)
+^[A-Z]+s$	s/([A-Z]+)s/$1/
+# hyphenated words should convert to single and multiple words, eg. 
+# free-wheeling should convert to freewheeling, free wheeling. Multiple
+# target patterns are separated with "__".
+(\w+)-(\w+)	s/(\w+)-(\w+)/$1$2__$1 $2/

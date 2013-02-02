@@ -1,0 +1,66 @@
+# $Id$
+# $Source$
+
+# Terms with leading or trailing parts that may be lost during stemming
+vitamin a
+vitamin d
+
+# Drug names which may be stemmed to medical concepts they are derived from
+a-cillin
+acne-10
+a-cof dh
+acys-5
+adenosine-5
+adlone-40
+adlone-80
+advantage-s
+a-g tussin
+ak-t-caine
+albuminar-25
+albuminar-5
+aldoclor-150
+aldoclor-250
+(+)-aldosterone
+allanderm-t
+allerhist-1
+almacone-2
+a-mantle
+a-methopred
+anadrol-50
+animi-3
+a-phedrin
+apab-100
+aspas s/l
+a-tan 12x
+atromid-s
+atrosulf-1
+bard-1
+b-caro-t
+becomject-100
+bellargal-s
+bel-tabs
+beminal-500
+benzagel-s
+bidex-a
+bleph-10
+
+# gene/virus names
+anti-neoplaston a
+anti-b1
+antierb-2
+antierbb-2
+anti-p185-her2
+
+# phrases that have different meanings than its component words
+blister pack
+cancer center
+diabetes center
+butterfly stroke
+tennis stroke
+rule of thumb
+shot in the arm
+slap on the wrist
+about face
+cold turkey
+
+

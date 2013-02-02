@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<!-- $Source$ -->
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>Concept</name>
+  <description>Concept Annotation - text is matched up against the Lucene/Neo4j datastores and annotated as concepts.</description>
+  <version>1.0</version>
+  <vendor>Healthline Networks, Inc.</vendor>
+  <types>
+    <typeDescription>
+      <name>com.mycompany.tgni.analysis.uima.annotators.concept.ConceptAnnotation</name>
+      <description/>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>oid</name>
+          <description>The matched concept's OID</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>stycodes</name>
+          <description>List of semantic type codes for concept</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>stygroup</name>
+          <description>Semantic Group for concept</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>pname</name>
+          <description>Preferred name for concept</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>similarity</name>
+          <description>Similarity with input string</description>
+          <rangeTypeName>uima.cas.Integer</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  </types>
+</typeSystemDescription>

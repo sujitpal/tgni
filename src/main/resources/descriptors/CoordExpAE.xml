@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<!-- $Source$ -->
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>com.mycompany.tgni.analysis.uima.annotators.nlp.CoordExpAnnotator</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>CoordExpAE</name>
+    <description>Finds and expands Coordinates in sentences</description>
+    <version>1.0</version>
+    <vendor>Healthline Networks, Inc.</vendor>
+    <configurationParameters/>
+    <configurationParameterSettings/>
+    <typeSystemDescription>
+      <imports>
+        <import location="@tgni.home@/conf/descriptors/NounPhrase.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs>
+          <type>com.mycompany.tgni.analysis.uima.annotators.nlp.NounPhraseAnnotation</type>
+        </inputs>
+        <outputs>
+          <type>com.mycompany.tgni.analysis.uima.annotators.nlp.NounPhraseAnnotation</type>
+          <feature>com.mycompany.tgni.analysis.uima.annotators.nlp.NounPhraseAnnotation:coordExpansions</feature>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <externalResourceDependencies/>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

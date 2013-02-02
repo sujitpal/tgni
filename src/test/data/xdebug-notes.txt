@@ -1,0 +1,7 @@
+http://www.xdebug.org/docs/install
+
+http://debuggable.com/posts/setting-up-xdebug-on-mac-os-x-or-win32-linux:480f4dd6-0240-4a90-8fa1-4e41cbdd56cb
+
+http://netbeans.org/kb/docs/php/debugging.html
+
+"Real-time debugging is a feature of PHP and not Drupal, but it's worth covering, since you can easily be identified as a Drupal ninja if a real-time debugger is running on your laptop". (Pro Drupal Development, Second Edition, page 524).

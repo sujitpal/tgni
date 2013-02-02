@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<!-- $Source$ -->
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>Sentence</name>
+  <description>Annotates text annotations retrieved from upstream annotators (HTML and XML stripper annotator) into sentences.</description>
+  <version>1.0</version>
+  <vendor>Healthline Networks, Inc.</vendor>
+  <types>
+    <typeDescription>
+      <name>com.mycompany.tgni.analysis.uima.annotators.nlp.SentenceAnnotation</name>
+      <description/>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+  </types>
+</typeSystemDescription>

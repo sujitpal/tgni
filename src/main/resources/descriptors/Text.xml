@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<!-- $Source$ -->
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>Text</name>
+  <description>Annotation to mark text regions in marked up documentation (HTML,XML).</description>
+  <version>1.0</version>
+  <vendor>Healthline Networks, Inc.</vendor>
+  <types>
+    <typeDescription>
+      <name>com.mycompany.tgni.analysis.uima.annotators.text.TextAnnotation</name>
+      <description/>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>tagName</name>
+          <description>Enclosing Tag Name</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>confidence</name>
+          <description>confidence level (0-1)</description>
+          <rangeTypeName>uima.cas.Float</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  </types>
+</typeSystemDescription>

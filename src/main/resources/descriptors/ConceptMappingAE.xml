@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<!-- $Source$ -->
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>false</primitive>
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="TextAE">
+      <import location="@tgni.home@/conf/descriptors/TextAE.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="SentenceAE">
+      <import location="@tgni.home@/conf/descriptors/SentenceAE.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="NounPhraseAE">
+      <import location="@tgni.home@/conf/descriptors/NounPhraseAE.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="CoordExpAE">
+      <import location="@tgni.home@/conf/descriptors/CoordExpAE.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="ConceptAE">
+      <import location="@tgni.home@/conf/descriptors/ConceptAE.xml"/>
+    </delegateAnalysisEngine>
+<!--
+    <delegateAnalysisEngine key="HomonymDisambigAE">
+      <import location="@tgni.home@/conf/descriptors/HomonymDisambigAE.xml"/>
+    </delegateAnalysisEngine>
+-->
+  </delegateAnalysisEngineSpecifiers>
+  <analysisEngineMetaData>
+    <name>ConceptMappingAE</name>
+    <description>
+      Analysis Chain suitable for concept mapping HTML pages 
+      (linking), plain text (indexing) and Strings (query).
+    </description>
+    <version>1.0</version>
+    <vendor>Healthline Networks, Inc.</vendor>
+    <configurationParameters/>
+    <configurationParameterSettings/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>TextAE</node>
+        <node>SentenceAE</node>
+        <node>NounPhraseAE</node>
+        <node>CoordExpAE</node>
+        <node>ConceptAE</node>
+<!--
+        <node>HomonymDisambigAE</node>
+-->
+      </fixedFlow>
+    </flowConstraints>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">
+            com.mycompany.tgni.analysis.uima.annotators.text.TextAnnotation
+          </type>
+          <type allAnnotatorFeatures="true">
+            com.mycompany.tgni.analysis.uima.annotators.nlp.SentenceAnnotation
+          </type>
+          <type allAnnotatorFeatures="true">
+            com.mycompany.tgni.analysis.uima.annotators.nlp.NounPhraseAnnotation
+          </type>
+          <type allAnnotatorFeatures="true">
+            com.mycompany.tgni.analysis.uima.annotators.concept.ConceptAnnotation
+          </type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<!-- $Source$ -->
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>false</primitive>
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="ChemNameAE">
+      <import location="@tgni.home@/conf/descriptors/ChemNameAE.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="PatternPreserveAE">
+      <import location="@tgni.home@/conf/descriptors/PatternPreserveAE.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="PatternTransformAE">
+      <import location="@tgni.home@/conf/descriptors/PatternTransformAE.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="DictionaryPreserveMatchCaseAE">
+      <import location="@tgni.home@/conf/descriptors/DictionaryPreserveMatchCaseAE.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="DictionaryTransformMatchCaseAE">
+      <import location="@tgni.home@/conf/descriptors/DictionaryTransformMatchCaseAE.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="DictionaryPreserveIgnoreCaseAE">
+      <import location="@tgni.home@/conf/descriptors/DictionaryPreserveIgnoreCaseAE.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="DictionaryTransformIgnoreCaseAE">
+      <import location="@tgni.home@/conf/descriptors/DictionaryTransformIgnoreCaseAE.xml"/>
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
+  <analysisEngineMetaData>
+    <name>TaxonomyMappingAE</name>
+    <description>Chain of UIMA Annotators to pre-process taxonomy concepts for storage into Neo4J's Lucene Index</description>
+    <version>1.0</version>
+    <vendor>Healthline Networks, Inc.</vendor>
+    <configurationParameters/>
+    <configurationParameterSettings/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>ChemNameAE</node>
+        <node>PatternPreserveAE</node>
+        <node>PatternTransformAE</node>
+        <node>DictionaryPreserveMatchCaseAE</node>
+        <node>DictionaryTransformMatchCaseAE</node>
+        <node>DictionaryPreserveIgnoreCaseAE</node>
+        <node>DictionaryTransformIgnoreCaseAE</node>
+      </fixedFlow>
+    </flowConstraints>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">
+            com.mycompany.tgni.analysis.uima.annotators.keyword.ChemicalNameAnnotator
+          </type>
+          <type allAnnotatorFeatures="true">
+            com.mycompany.tgni.analysis.uima.annotators.keyword.PatternAnnotator
+          </type>
+          <type allAnnotatorFeatures="true">
+            com.mycompany.tgni.analysis.uima.annotators.keyword.PatternAnnotator
+          </type>
+          <type allAnnotatorFeatures="true">
+            com.mycompany.tgni.analysis.uima.annotators.keyword.DictionaryAnnotator
+          </type>
+          <type allAnnotatorFeatures="true">
+            com.mycompany.tgni.analysis.uima.annotators.keyword.DictionaryAnnotator
+          </type>
+          <type allAnnotatorFeatures="true">
+            com.mycompany.tgni.analysis.uima.annotators.keyword.DictionaryAnnotator
+          </type>
+          <type allAnnotatorFeatures="true">
+            com.mycompany.tgni.analysis.uima.annotators.keyword.DictionaryAnnotator
+          </type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<!-- $Source$ -->
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>com.mycompany.tgni.analysis.uima.annotators.concept.ConceptAnnotator</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>Annotates strings by looking up TGNI NodeService.</name>
+    <description/>
+    <version>1.0</version>
+    <vendor>Healthline Networks, Inc.</vendor>
+    <configurationParameters/>
+    <configurationParameterSettings/>
+    <typeSystemDescription>
+      <imports>
+        <import location="@tgni.home@/conf/descriptors/Concept.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type>com.mycompany.tgni.analysis.uima.annotators.concept.ConceptAnnotation</type>
+          <feature>com.mycompany.tgni.analysis.uima.annotators.concept.ConceptAnnotation:oid</feature>
+          <feature>com.mycompany.tgni.analysis.uima.annotators.concept.ConceptAnnotation:stycodes</feature>
+          <feature>com.mycompany.tgni.analysis.uima.annotators.concept.ConceptAnnotation:stygrp</feature>
+          <feature>com.mycompany.tgni.analysis.uima.annotators.concept.ConceptAnnotation:pname</feature>
+          <feature>com.mycompany.tgni.analysis.uima.annotators.concept.ConceptAnnotation:similarity</feature>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

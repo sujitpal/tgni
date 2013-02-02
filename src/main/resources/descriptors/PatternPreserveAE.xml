@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<!-- $Source$ -->
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>
+  <annotatorImplementationName>com.mycompany.tgni.analysis.uima.annotators.keyword.PatternAnnotator</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>PatternPreserveAE</name>
+    <description>Recognize and preserve patterns.</description>
+    <version>1.0</version>
+    <vendor>Healthline Networks, Inc.</vendor>
+    <configurationParameters>
+      <configurationParameter>
+        <name>preserveOrTransform</name>
+        <description>Whether to preserve ot transform pattern</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>preserveOrTransform</name>
+        <value>
+          <string>preserve</string>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+    <typeSystemDescription>
+      <imports>
+        <import location="@tgni.home@/conf/descriptors/Keyword.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type>com.mycompany.tgni.analysis.uima.annotators.keyword.KeywordAnnotation</type>
+          <feature>com.mycompany.tgni.analysis.uima.annotators.keyword.KeywordAnnotation:transformedValue</feature>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration>
+    <externalResources>
+      <externalResource>
+        <name>patternSet</name>
+        <description>Set of patterns to preserve</description>
+        <fileResourceSpecifier>
+          <fileUrl>file:@tgni.home@/conf/pattern_preservations.txt</fileUrl>
+        </fileResourceSpecifier>
+        <implementationName>com.mycompany.tgni.analysis.uima.conf.SharedSetResource</implementationName>
+      </externalResource>
+    </externalResources>
+    <externalResourceBindings>
+      <externalResourceBinding>
+        <key>patternAnnotatorProperties</key>
+        <resourceName>patternSet</resourceName>
+      </externalResourceBinding>
+    </externalResourceBindings>
+  </resourceManagerConfiguration>
+</analysisEngineDescription>

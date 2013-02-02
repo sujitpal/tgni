@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>Keyword</name>
+  <description>Represents character sequence patterns in text.</description>
+  <version>1.0</version>
+  <vendor>Healthline Networks, Inc.</vendor>
+  <types>
+    <typeDescription>
+      <name>com.mycompany.tgni.analysis.uima.annotators.keyword.KeywordAnnotation</name>
+      <description/>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>transformedValue</name>
+          <description>The transformed value (can be empty)</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  </types>
+</typeSystemDescription>

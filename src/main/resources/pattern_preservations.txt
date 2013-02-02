@@ -1,0 +1,7 @@
+# $Id$
+# $Source$
+# Format of this file:
+# pattern	# optional comment
+#
+[A-Z]{2}[A-Za-z0-9-]*	# abbreviation: first 2 uppercase followed by any
+[1-9]+[A-Za-z-,][A-Za-z0-9-,]*	# chemical name

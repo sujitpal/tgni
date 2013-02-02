@@ -1,0 +1,33 @@
+* CONCEPT SUBSUMPTION AE 
+
+# http://hal-univ-mlv.archives-ouvertes.fr/docs/00/63/72/61/PDF/LSM_Nantes_2009.pdf
+# Combining NER Systems via a UIMA-based platform
+# Baptiste Gaillard, et al
+1. NEs with same offsets (A = B) :
+  a. Same annotation -> Merge
+  b. NEs with different annotations where one annotation is descendant of the other -> keep the most specific annotation
+  c. NEs with different annotations that have a common parent type -> use the parent annotation
+  d. NEs with different annotations (other cases) -> majority vote.
+2. One NE included in another (A= Barack, B= Barack Obama or A= Obama, B= Barack Obama or A= Hussein, B=Barack Hussein Obama)
+  a. Same annotation -> keep the longer one.
+  b. NEs with different annotations which have a common parent type or where one
+annotation type is a descendant of the other -> keep the longer one with its type
+  c. NEs with different annotations (other cases) -> keep both NEs.
+3. One NE overlaps another (AB= Barack Hussein, BC= Hussein Obama)
+  a. Same annotation -> merge ABC.
+  b. NEs with different annotations which have a common parent type or where one
+annotation type is a descendant of the other -> merge ABC with the coarsest annotation.
+  c. NEs with different annotations (other cases) -> keep both NEs.
+
+* HOMONYM DISAMBIG AE 
+
+* NOTES: USE BLOOMFILTER TO SEARCH QUICKER...
+
+double falsePositiveProbability = 0.1;
+int expectedNumberOfElements = 100;
+
+BloomFilter<String> bloomFilter = new BloomFilter<String>(falsePositiveProbability, expectedNumberOfElements);
+
+bloomFilter.add("foo");
+bloomFilter.contains("foo"); // returns true
+

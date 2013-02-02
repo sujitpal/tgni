@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<!-- $Source$ -->
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>NounPhrase</name>
+  <description>Annotation to represent Noun Phrase sequences in a body of text.</description>
+  <version>1.0</version>
+  <vendor>Healthline Networks, Inc.</vendor>
+  <types>
+    <typeDescription>
+      <name>com.mycompany.tgni.analysis.uima.annotators.nlp.NounPhraseAnnotation</name>
+      <description/>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>coordExpansions</name>
+          <description>Expansions put in by CoordExpAE</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  </types>
+</typeSystemDescription>
